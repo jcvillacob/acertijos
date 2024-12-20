@@ -1,0 +1,48 @@
+<div class="quiz-home" #quizHome>
+  <div class="content">
+    <div class="header">
+      <h1>¡Bienvenida Caro, al Quiz!</h1>
+      <p>Pon a prueba tus conocimientos y diviértete.</p>
+    </div>
+
+    <div class="actions" #buttons>
+      <button
+        class="btn start-btn"
+        routerLink="/quiz/question"
+        (mouseenter)="animateHover($event, 1.1)"
+        (mouseleave)="animateHover($event, 1)"
+      >
+        Comenzar Quiz
+      </button>
+      <button
+        class="btn info-btn"
+        (click)="toggleInstructionsModal()"
+        (mouseenter)="animateHover($event, 1.1)"
+        (mouseleave)="animateHover($event, 1)"
+      >
+        Instrucciones
+      </button>
+    </div>
+
+    <footer>
+      <p>Hecho con ❤️ para aprender y disfrutar</p>
+    </footer>
+  </div>
+
+  <!-- Superposición para aplicar el blur -->
+  <div class="overlay" [class.hidden]="!isModalOpen"></div>
+
+  <!-- Modal para las instrucciones -->
+  <div class="modal" #modalRef [class.hidden]="!isModalOpen" (click)="onModalClick($event)" aria-modal="true" role="dialog">
+    <div class="modal-content" (click)="$event.stopPropagation()" tabindex="-1">
+      <h2>Instrucciones</h2>
+      <p>
+        1. Haz clic en "Comenzar Quiz" para iniciar.<br />
+        2. Responde las preguntas seleccionando una opción.<br />
+        3. Recibirás un resumen al final.<br />
+        ¡Buena suerte!
+      </p>
+      <button class="btn close-btn" (click)="toggleInstructionsModal()">Cerrar</button>
+    </div>
+  </div>
+</div>

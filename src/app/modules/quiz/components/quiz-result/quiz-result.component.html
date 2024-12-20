@@ -1,0 +1,14 @@
+<!-- quiz-result.component.html -->
+
+<div class="resultado-container">
+    <img
+      src="https://img.freepik.com/vector-premium/ilustracion-dibujo-mano-concepto-celebracion-fiesta-jovenes_491831-209.jpg?w=996"
+      alt="Celebración"
+      class="celebration-image"
+    />
+    <h1>¡Has terminado el quiz!</h1>
+    <p class="puntaje">Tu puntaje: {{ score }} de {{ totalQuestions }}</p>
+    <p class="message">{{ message }}</p>
+    <button (click)="reiniciarQuiz()" class="reiniciar-btn">Reiniciar Quiz</button>
+  </div>
+  

@@ -1,0 +1,175 @@
+.quiz-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+  background: #121212; // Fondo oscuro
+  color: #ffffff; // Texto blanco
+  position: relative; // Para posicionar el footer
+  overflow: hidden; // Evita scroll cuando el modal está abierto
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .header {
+    margin-bottom: 50px;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #d3d3d3; // Texto gris claro
+    }
+  }
+
+  .actions {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .btn {
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffffff; // Texto blanco
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+
+      &:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .start-btn {
+      background: #28a745; // Verde oscuro para el botón de comenzar
+      &:hover {
+        background: #3cb371; // Más claro en hover
+      }
+    }
+
+    .info-btn {
+      background: #555555; // Botón gris medio
+      &:hover {
+        background: #666666;
+      }
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #d3d3d3;
+    opacity: 0.8;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 90;
+    visibility: hidden; // Oculto por defecto
+    opacity: 0; // Invisible
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.hidden {
+      visibility: hidden; // Ocultar completamente
+      opacity: 0; // Invisible
+    }
+
+    &:not(.hidden) {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #222222;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    z-index: 100;
+    visibility: hidden; // Oculto por defecto
+    opacity: 0; // Comienza invisible
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+    &.hidden {
+      visibility: hidden; // Ocultar completamente
+      opacity: 0; // Invisible
+      transform: translate(-50%, -60%); // Ligero desplazamiento al cerrar
+    }
+
+    &:not(.hidden) {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    .modal-content {
+      h2 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .close-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #ffffff;
+        background: #ff4d4d; // Rojo oscuro
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background: #ff6666; // Más claro en hover
+        }
+
+        &:active {
+          background: #ff3333; // Más oscuro en active
+          transform: scale(0.98); // Ligero efecto de presión
+        }
+      }
+    }
+  }
+}
